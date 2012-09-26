@@ -10,6 +10,8 @@ require "html2haml"
 require 'html2haml/html'
 require 'html2haml/html/erb'
 
+require 'turn/autorun'
+
 class MiniTest::Unit::TestCase
   protected
   def render(text, options = {})
