@@ -323,7 +323,7 @@ module Haml
         end
 
         output << ">" if nuke_outer_whitespace
-        output << "/" if blank? && !etag
+        output << "/" if (blank? || children.empty?) && !self_closing?
 
         if children && children.size == 1
           child = children.first
@@ -428,6 +428,10 @@ module Haml
           name = name.index(/\W/) ? name.inspect : ":#{name}"
           "#{name} => #{value}"
         end
+      end
+
+      def self_closing?
+        Haml::Options.defaults[:autoclose].include?(name)
       end
     end
   end

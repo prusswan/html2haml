@@ -132,7 +132,7 @@ HTML
   end
 
   def test_interpolation_in_erb_attrs
-    assert_equal('%p{:foo => "#{bar} baz"}',
+    assert_equal('%p{:foo => "#{bar} baz"}/',
       render_erb('<p foo="<%= "#{bar} baz" %>"></p>'))
   end
 
@@ -416,7 +416,7 @@ ERB
     assert_equal(<<HAML.rstrip, render_erb(<<ERB))
 %table
   - foo.each do
-    %tr
+    %tr/
 HAML
 <table>
   <% foo.each do %>
