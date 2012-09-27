@@ -11,8 +11,13 @@ require 'html2haml/html'
 require 'html2haml/html/erb'
 
 require 'turn/autorun'
+require 'debugger'
 
 class MiniTest::Unit::TestCase
+  def self.test_order
+    :alpha
+  end
+
   protected
   def render(text, options = {})
     Haml::HTML.new(text, options).render.rstrip
